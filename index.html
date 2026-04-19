@@ -7,7 +7,7 @@
   <title>QAverge — Quality Engineering & AI Testing</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;600;700;800&family=DM+Sans:wght@300;400;500;600&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700;800;900&family=Cormorant+Garamond:wght@600;700&family=DM+Sans:wght@300;400;500;600&family=Syne:wght@400;600;700;800&display=swap" rel="stylesheet">
   <style>
     :root {
       --bg: #0d0618;
@@ -180,12 +180,32 @@
       50% { opacity: 0.5; transform: scale(0.8); }
     }
     h1.hero-title {
-      font-size: clamp(36px, 5vw, 64px);
-      font-weight: 800;
-      letter-spacing: 2px;
-      text-transform: uppercase;
+      font-family: 'Playfair Display', serif;
+      font-size: clamp(40px, 5.5vw, 76px);
+      font-weight: 900;
+      letter-spacing: -1px;
+      text-transform: none;
       margin-bottom: 24px;
       animation: fadeUp 0.8s 0.1s ease both;
+      line-height: 1.08;
+    }
+    .hero-title-line1 {
+      display: block;
+      color: var(--white);
+    }
+    .hero-title-shine {
+      display: block;
+      background: linear-gradient(135deg, #3dffc0 0%, #a8ffeb 30%, #fff 50%, #3dffc0 70%, #1de8a8 100%);
+      background-size: 200% auto;
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+      animation: shine 3s linear infinite, fadeUp 0.8s 0.1s ease both;
+      filter: drop-shadow(0 0 30px rgba(61,255,192,0.4));
+    }
+    @keyframes shine {
+      0% { background-position: 0% center; }
+      100% { background-position: 200% center; }
     }
     .hero-sub {
       font-size: 17px;
@@ -252,15 +272,76 @@
     }
     .hero-stat { text-align: center; }
     .hero-stat-num {
-      font-family: 'Syne', sans-serif;
-      font-size: 36px;
-      font-weight: 800;
+      font-family: 'Playfair Display', serif;
+      font-size: 40px;
+      font-weight: 900;
       color: var(--mint);
       display: block;
+      background: linear-gradient(135deg, #3dffc0, #a8ffeb, #3dffc0);
+      background-size: 200% auto;
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+      animation: shine 4s linear infinite;
+      filter: drop-shadow(0 0 12px rgba(61,255,192,0.35));
+    }
+    /* GOLD SHIMMER for section headings */
+    .section-title {
+      font-family: 'Playfair Display', serif;
+      font-size: clamp(28px, 3.5vw, 46px);
+      font-weight: 900;
+      letter-spacing: -0.5px;
+      text-transform: none;
+      margin-bottom: 16px;
+    }
+    .section-title .mint {
+      background: linear-gradient(135deg, #3dffc0 0%, #a8ffeb 40%, #fff 55%, #3dffc0 80%);
+      background-size: 200% auto;
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+      animation: shine 3s linear infinite;
+      filter: drop-shadow(0 0 20px rgba(61,255,192,0.3));
+    }
+    /* SAVING BADGE */
+    .saving-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      background: linear-gradient(135deg, rgba(61,255,192,0.1), rgba(255,215,0,0.08));
+      border: 1px solid rgba(255,215,0,0.3);
+      border-radius: 100px;
+      padding: 8px 22px;
+      font-size: 13px;
+      font-weight: 600;
+      letter-spacing: 1px;
+      color: #ffd700;
+      text-transform: uppercase;
+      margin-bottom: 16px;
+      animation: fadeUp 0.8s 0.05s ease both;
+      box-shadow: 0 0 20px rgba(255,215,0,0.1);
+    }
+    .saving-badge-dot {
+      width: 8px; height: 8px;
+      background: #ffd700;
+      border-radius: 50%;
+      box-shadow: 0 0 8px #ffd700;
+      animation: pulse 2s infinite;
+    }
+    .saving-number {
+      font-family: 'Playfair Display', serif;
+      font-size: 17px;
+      font-weight: 900;
+      background: linear-gradient(90deg, #ffd700, #fff8dc, #ffd700);
+      background-size: 200% auto;
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+      animation: shine 2s linear infinite;
     }
     .hero-stat-label { font-size: 13px; color: var(--muted); letter-spacing: 0.5px; }
 
-    /* SECTION BASE */
+    /* section-title handled below with Playfair Display */
     section {
       position: relative;
       z-index: 1;
@@ -275,13 +356,6 @@
       letter-spacing: 3px;
       text-transform: uppercase;
       color: var(--mint);
-      margin-bottom: 16px;
-    }
-    .section-title {
-      font-size: clamp(28px, 3.5vw, 42px);
-      font-weight: 800;
-      letter-spacing: 1.5px;
-      text-transform: uppercase;
       margin-bottom: 16px;
     }
     .section-sub {
@@ -853,9 +927,14 @@
     AI-Powered Quality Engineering
   </div>
 
+  <div class="saving-badge">
+    <span class="saving-badge-dot"></span>
+    Save up to <span class="saving-number">&nbsp;50% Cost&nbsp;</span> using our AI Tools
+  </div>
+
   <h1 class="hero-title">
-    WE SHIP SOFTWARE<br/>
-    <span class="mint">YOU CAN TRUST</span>
+    <span class="hero-title-line1">We Ship Software</span>
+    <span class="hero-title-shine">You Can Trust</span>
   </h1>
 
   <p class="hero-sub">
@@ -880,16 +959,16 @@
       <span class="hero-stat-label">Bug Detection Rate</span>
     </div>
     <div class="hero-stat">
-      <span class="hero-stat-num">150+</span>
-      <span class="hero-stat-label">Apps Tested</span>
+      <span class="hero-stat-num">50%</span>
+      <span class="hero-stat-label">Cost Savings via AI</span>
     </div>
     <div class="hero-stat">
       <span class="hero-stat-num">3×</span>
       <span class="hero-stat-label">Faster Delivery</span>
     </div>
     <div class="hero-stat">
-      <span class="hero-stat-num">50+</span>
-      <span class="hero-stat-label">Happy Clients</span>
+      <span class="hero-stat-num">150+</span>
+      <span class="hero-stat-label">Apps Delivered</span>
     </div>
   </div>
 </div>
@@ -918,7 +997,7 @@
 <section id="services">
   <div class="fade-up">
     <span class="section-label">What We Do</span>
-    <h2 class="section-title">THREE CORE SERVICES.<br/><span class="mint">ONE TRUSTED PARTNER.</span></h2>
+    <h2 class="section-title"><span>Three Core Services.</span><br/><span class="mint">One Trusted Partner.</span></h2>
     <p class="section-sub">From manual testing to intelligent automation and full-stack mobile apps — we cover every dimension of software quality.</p>
   </div>
 
@@ -983,7 +1062,7 @@
 <section id="process">
   <div class="fade-up" style="text-align:center; max-width:600px; margin:0 auto 60px;">
     <span class="section-label">How We Work</span>
-    <h2 class="section-title">A CLEAR PROCESS.<br/><span class="mint">ZERO SURPRISES.</span></h2>
+    <h2 class="section-title">A Clear Process.<br/><span class="mint">Zero Surprises.</span></h2>
   </div>
   <div class="process-steps fade-up">
     <div class="process-step">
@@ -1016,7 +1095,7 @@
   <div class="mobile-grid">
     <div>
       <span class="section-label fade-up">Mobile Development</span>
-      <h2 class="section-title fade-up">APPS BUILT FOR <span class="mint">iOS &amp; ANDROID</span></h2>
+      <h2 class="section-title fade-up">Apps Built For <span class="mint">iOS &amp; ANDROID</span></h2>
       <p class="section-sub fade-up">We design and develop beautiful, high-performance mobile apps from scratch — then QA-test them to perfection before launch.</p>
 
       <div style="margin-bottom:24px;">
@@ -1097,7 +1176,7 @@
   <div class="why-grid">
     <div>
       <span class="section-label fade-up">Why QAverge</span>
-      <h2 class="section-title fade-up">BUILT DIFFERENTLY.<br/><span class="mint">RESULTS THAT SHOW.</span></h2>
+      <h2 class="section-title fade-up">Built Differently.<br/><span class="mint">Results That Show.</span></h2>
       <ul class="why-list">
         <li class="fade-up">
           <div class="why-check">
@@ -1160,7 +1239,7 @@
   <div class="cta-bg"></div>
   <div class="cta-box fade-up" style="max-width:860px;">
     <span class="section-label" style="display:block;text-align:center;margin-bottom:20px">Let's Talk</span>
-    <h2 style="margin-bottom:12px;">READY TO SHIP WITH <span class="mint">CONFIDENCE?</span></h2>
+    <h2 style="margin-bottom:12px;">Ready to Ship With <span class="mint">Confidence?</span></h2>
     <p style="text-align:center;margin-bottom:40px;">Tell us about your project and we'll get back to you within 24 hours with a tailored quality plan.</p>
 
     <form class="contact-form" id="contactForm" action="https://formspree.io/f/xaqajvwl" method="POST">
